@@ -622,6 +622,34 @@ html {
 @media screen and (max-width:1024px) {
     .fillter{
         display: flex;
-        flex-direction: column !important;
+        flex-direction: row !important;
+        margin-left: 100px;
     }
+    .searchbutton{
+        display: flex;
+        
+    }
+    .searchtext {
+        width: 150px;
+    }
+    .list-group{
+        margin: 30px;
+    }
+}
+@media screen and (max-width:768px) {
+    
+    .productname{
+        display: none !important;
+    }
+    .cart-header {
+        width: fit-content;
+    }
+    .cart-table{
+        width: fit-content;
+    }
+    
+}
+.active{
+    background-color: #4A5D74 !important;
+    border: none !important;
 }

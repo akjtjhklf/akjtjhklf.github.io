@@ -2,7 +2,6 @@ const inputUsernameRegister = document.querySelector("#e-mail");
 const inputPasswordRegister = document.querySelector(".passwd");
 const btnRegister = document.querySelector(".auth-submit");
 const inputFullNameRegister = document.querySelector("#user-FullName");
-
 btnRegister.addEventListener("click", (e) => {
   e.preventDefault();
 

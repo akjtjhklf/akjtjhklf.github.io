@@ -51,7 +51,7 @@ function handleLogin(event) {
       localStorage.removeItem("rememberedEmail");
       localStorage.removeItem("rememberedPassword");
     }
-    window.location.href = "/html/main-trch.html";
+    window.location.href = "/index.html";
   }
 }
 
