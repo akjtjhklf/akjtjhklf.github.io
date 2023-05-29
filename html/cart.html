@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400&display=swap" rel="stylesheet">
@@ -25,6 +25,27 @@
 </head>
 
 <body>
+    <div class="d-flex justify-content-md-between align-items-center mt-3 w-100 flex-column flex-md-row shop-intro">
+        <div class="ms-5 input-group-sm input-group me-md-2 mb-2"
+            style="width: 15rem; border: solid 1px; border-radius: 5px; height: 3rem;">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon1"
+                style="border: none;"><i class="bi bi-search"></i></button>
+            <input type="text" class="form-control" placeholder="Tìm kiếm"
+                aria-label="Example text with button addon" aria-describedby="button-addon1"
+                style="border: none !important;">
+        </div>
+        <div class="me-md-2 mb-2">
+            <img src="/images/logo.png" width="300">
+        </div>
+        <div class="me-5 mb-md-0 mb-3 d-flex align-item-center justify-content-center extention">
+            <a class="cart p-0 ps-3 pe-3" href="/html/user-info.html" style="border-radius: 20px;"><i class="bi bi-person"
+                style="font-size:xx-large; color: #000000;"></i></a>
+            <a class="cart p-0 ps-3 pe-3" href="/html/cart.html" style="border-radius: 20px;"><i class="bi bi-cart3"
+                style="font-size:xx-large; color: #000000;"></i></a>
+            <a class="sign p-0 ps-3 pe-3" href="/html/dangnhap.html" style="border-radius: 20px;"><i class="bi bi-box-arrow-in-left"
+                style="font-size:xx-large; color: #000000;"></i></a>
+        </div>
+    </div>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid p-0">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
@@ -33,45 +54,24 @@
             </button>
             <div class="collapse navbar-collapse justify-content-center align-items-center flex-column"
                 id="navbarTogglerDemo01">
-                <div class="d-flex justify-content-md-between align-items-center mt-3 w-100 flex-column flex-md-row">
-                    <div class="ms-5 input-group-sm input-group me-md-2 mb-2"
-                        style="width: 15rem; border: solid 1px; border-radius: 5px; height: 3rem;">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon1"
-                            style="border: none;"><i class="bi bi-search"></i></button>
-                        <input type="text" class="form-control" placeholder="Tìm kiếm"
-                            aria-label="Example text with button addon" aria-describedby="button-addon1"
-                            style="border: none !important;">
-                    </div>
-                    <div class="me-md-2 mb-2">
-                        <img src="/images/logo.png" width="300">
-                    </div>
-                    <div class="me-5 mb-md-0 mb-3 d-flex align-item-center justify-content-center">
-                        <a class="cart p-0 ps-3 pe-3" href="/html/user-info.html" style="border-radius: 20px;"><i class="bi bi-person"
-                            style="font-size:xx-large; color: #000000;"></i></a>
-                        <a class="cart p-0 ps-3 pe-3" href="/html/cart.html" style="border-radius: 20px;"><i class="bi bi-cart3"
-                            style="font-size:xx-large; color: #000000;"></i></a>
-                        <a class="sign p-0 ps-3 pe-3" href="/html/dangnhap.html" style="border-radius: 20px;"><i class="bi bi-box-arrow-in-left"
-                            style="font-size:xx-large; color: #000000;"></i></a>
-                    </div>
-                </div>
                 <ul class="listitem d-flex justify-content-center align-items-center flex-column flex-md-row w-100 px-0 m-0 mt-md-3 mt-0"
                     style="list-style: none; background-color: #2C2E3E;">
                     <li class="navbaritem mb-md-0 fw-semibold  py-4 px-5" style="font-size:medium;color: whitesmoke;"><a
-                            class="narbar-iteminfo" href="main-trch.html">TRANG
+                            class="narbar-iteminfo" href="/index.html">TRANG
                             CHỦ</a> </li>
                     <li class="navbaritem mb-md-0 fw-semibold  py-4 px-5" style="font-size:medium;color: whitesmoke;">
                         <a class="narbar-iteminfo" href="main-sp.html">SẢN PHẨM</a>
                     </li>
                     <li class="navbaritem mb-md-0 fw-semibold  py-4 px-5" style="font-size:medium;color: whitesmoke;">
-                        <a class="narbar-iteminfo" href="main-trch.html#smell-mark">NHÓM HƯƠNG</a>
+                        <a class="narbar-iteminfo" href="/index.html#smell-mark">NHÓM HƯƠNG</a>
                     </li>
                     <li class="navbaritem mb-md-0 fw-semibold  py-4 px-5" style="font-size:medium;color: whitesmoke;">
-                        <a class="narbar-iteminfo" href="main-trch.html#brand-mark">THƯƠNG HIỆU</a>
+                        <a class="narbar-iteminfo" href="/index.html#brand-mark">THƯƠNG HIỆU</a>
                     </li>
                     <li class="navbaritem mb-md-0 fw-semibold  py-4 px-5" style="font-size:medium;color: whitesmoke;">
-                        <a class="narbar-iteminfo" href="main-trch.html#main-mark">VỀ LA PARFUMANIA</a>
+                        <a class="narbar-iteminfo" href="/index.html#main-mark">VỀ LA PARFUMANIA</a>
                     <li class="navbaritem mb-md-0 fw-semibold  py-4 px-5" style="font-size:medium;color: whitesmoke;">
-                        <a class="narbar-iteminfo" href="main-trch.html#blog-mark">BLOGS</a>
+                        <a class="narbar-iteminfo" href="/index.html#blog-mark">BLOGS</a>
                     </li>
                     <li class="navbaritem mb-md-0 fw-semibold  py-4 px-5" style="font-size:medium;color: whitesmoke;">
                         <a class="narbar-iteminfo" href="/html/contact-form.html">LIÊN HỆ</a>
@@ -81,7 +81,8 @@
         </div>
     </nav>
     <div class="d-flex flex-column" style="margin: 50px; padding:50px;">
-        <div style="border: 1px solid rgb(197, 190, 190); border-radius: 20px; box-shadow: rgba(0, 0, 0,0.35) 0px 5px 15px;">
+        <div
+            style="border: 1px solid rgb(197, 190, 190); border-radius: 20px; box-shadow: rgba(0, 0, 0,0.35) 0px 5px 15px;">
             <table class="table table-hover" style="font-size: 20px; border-radius: 20px;">
                 <thead class="table-dark">
                     <tr style="text-align: center;" class="d-flex">
@@ -90,11 +91,12 @@
                         <th class="col-2" style="font-size: large; font-weight: 500;">TÊN SẢN PHẨM</th>
                         <th class="col-2" style="font-size: large; font-weight: 500;">ĐƠN GIÁ</th>
                         <th class="col-2" style="font-size: large; font-weight: 500;">SỐ LƯỢNG</th>
-                        <th class="col-2" style="font-size: large; font-weight: 500;border-radius: 0 20px 0 0">THÀNH TIỀN</th>
+                        <th class="col-2" style="font-size: large; font-weight: 500;border-radius: 0 20px 0 0">THÀNH
+                            TIỀN</th>
                     </tr>
                 </thead>
             </table>
-            <div class="d-flex flex-column justify-content-around "  id="cardlist"></div>
+            <div class="d-flex flex-column justify-content-around " id="cardlist"></div>
         </div>
         <div class="row" style="margin-top: 80px;">
             <div class="col-sm-5 mb-3 mb-sm-0">
@@ -116,16 +118,27 @@
                         <h4 style="text-decoration: underline;">TỔNG TIỀN</h4>
                         <div class="d-flex justify-content-between" style="font-size: 20px;">
                             <div class="d-flex flex-column" style="font-weight: 500;">
-                                <div class="p-2"><p>Tạm Tính</p></div>
-                                <div class="p-2" style="border-bottom-style:solid;"><p>Giảm Giá</p></div>
-                                <div class="p-2"><p>Tổng Tiền</p></div>
+                                <div class="p-2">
+                                    <p>Tạm Tính</p>
+                                </div>
+                                <div class="p-2" style="border-bottom-style:solid;">
+                                    <p>Giảm Giá</p>
+                                </div>
+                                <div class="p-2">
+                                    <p>Tổng Tiền</p>
+                                </div>
                             </div>
                             <div class="d-flex flex-column">
-                                <div class="p-2 d-flex flex-row-reverse"><p class="total">000,000đ</p></div>
-                                <div class="p-2 d-flex flex-row-reverse" style="border-bottom-style:solid;"><p class="discounted">000,000đ</p>
+                                <div class="p-2 d-flex flex-row-reverse">
+                                    <p class="total">000,000đ</p>
+                                </div>
+                                <div class="p-2 d-flex flex-row-reverse" style="border-bottom-style:solid;">
+                                    <p class="discounted">000,000đ</p>
                                 </div>
                                 <div class="p-2 d-flex flex-row-reverse"
-                                    style="font-size:25px; font-weight: bold; color:red;"><p class="final">000,000đ</p></div>
+                                    style="font-size:25px; font-weight: bold; color:red;">
+                                    <p class="final">000,000đ</p>
+                                </div>
                             </div>
                         </div>
                         <div class=" d-flex justify-content-center">
@@ -162,7 +175,7 @@
                     </div>
                 </form>
             </div>
-            <div class="moreinfo" id="lienhe-mark">
+            <div class="moreinfo">
                 <div class="listinfo d-flex justify-content-evenly">
                     <div style="color: white;">
                         <h4 class="mb-4">THÔNG TIN LIÊN HỆ</h4>

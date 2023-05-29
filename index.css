@@ -228,9 +228,6 @@ div.main-content div.page-banner div.bread-crumb span.chevron {
     padding: 16px;
 }
 
-.carousel-inner {
-    margin: 0px 80px;
-}
 
 .brand-main {
     margin: 0px 74px;
@@ -258,8 +255,8 @@ div.main-content div.page-banner div.bread-crumb span.chevron {
 }
 
 .imgblog {
-    width: 868px;
-    height: 400px;
+    width: auto;
+    height: auto;
 }
 
 .blog-main {
@@ -288,6 +285,7 @@ div.main-content div.page-banner div.bread-crumb span.chevron {
 }
 
 .discount {
+    width: auto;
     height: 120px;
     background-color: #F9F9F7;
 }
@@ -330,7 +328,7 @@ div.main-content div.page-banner div.bread-crumb span.chevron {
 
 .moreinfo {
     margin-top: 116px;
-    height: 300px;
+    height: auto;
     background-color: #2C2E3E;
 }
 
@@ -458,9 +456,11 @@ html {
     background-color: #F9F9F7;
     transition: 0.2s;
 }
-.remToCart:hover{
+
+.remToCart:hover {
     background-color: #fa6464;
 }
+
 .alert-box {
     position: fixed;
     top: 50%;
@@ -475,18 +475,153 @@ html {
     justify-content: center;
     align-items: center;
 }
-.alert-main{
+
+.alert-main {
     text-align: center;
     margin: 0px;
     padding: 0;
     font-size: large;
     font-weight: 500;
 }
-.cart:hover{
+
+.cart:hover {
     background-color: #dadbde;
     transition: 0.5s;
 }
-.sign:hover{
+
+.sign:hover {
     background-color: #dadbde;
     transition: 0.5s;
+}
+
+.main {
+    margin: 80px 428.5px;
+    background-color: rgb(255, 255, 255);
+}
+
+/*responsive */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .main {
+        margin: 80px 200px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .home{
+        display: none !important;
+    }
+}
+@media screen and (max-width: 900px) {
+    .listinfo {
+        display: flex;
+        flex-direction: column !important;
+    }
+    .smelllist{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .main {
+        margin: 80px 10px;
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .bd-highlight {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .p-2 {
+        padding: 5px;
+    }
+
+    .card {
+        margin: 10px;
+    }
+}
+
+#manlist .carousel-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  #manlist .card {
+    width: 30%;
+    height: auto;
+    margin: 1rem;
+  }
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-4 {
+    flex: 0 0 1;
+    max-width: 33.333333%;
+}
+
+.col-8 {
+    flex: 0 0 1;
+    max-width: 66.666667%;
+}
+
+.imgitem img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+
+@media screen and (max-width: 1330px) {
+    .imgblog img {
+        display: none;
+    }
+
+    .blog1 {
+        margin-right: 0px;
+    }
+
+    .blog2 {
+        margin-left: 0px;
+    }
+    .reg{ 
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .brandlist{
+        display: none !important;
+    }
+    .shop-intro{
+        display: flex;
+        flex-direction: row;
+        justify-content: center; 
+        align-items: center;
+    }
+    .input-group-sm{
+        margin: 10px 0px !important;
+    }
+    .extention{
+        margin: 10px 0px !important;
+    }
+    .discount{
+        flex-direction: column;
+    }
+    .voucher{
+        margin-bottom: 30px;
+    }
+}
+@media screen and (max-width:1024px) {
+    .fillter{
+        display: flex;
+        flex-direction: column !important;
+    }
 }

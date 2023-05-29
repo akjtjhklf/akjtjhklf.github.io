@@ -1,6 +1,6 @@
 const username = localStorage.getItem('current-user');
-const user = JSON.parse(localStorage.getItem(username));
 if (username) {
+  const user = JSON.parse(localStorage.getItem(username));
   const fullNameElement = document.querySelector('#fullName');
   const usernameElement = document.querySelector('#username');
   const passwordElement = document.querySelector('#password');
@@ -10,10 +10,3 @@ if (username) {
   console.log(fullNameElement,usernameElement,passwordElement);
 }
 
-let rspasswordInput= document.getElementsByClassName("resetpw")[0];
-let rspassswordButton = document.getElementsByClassName("resetpw")[1];
-rspassswordButton.addEventListener("click",function(){
-  user.password=rspasswordInput.value;
-  localStorage.setItem('username',user);
-  location.reload;
-});

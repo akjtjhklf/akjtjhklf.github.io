@@ -1,6 +1,41 @@
 
 
+const button1 = document.getElementById("button1");
+const button2 = document.getElementById("button2");
+const button3 = document.getElementById("button3");
+const button4 = document.getElementById("button4");
+const div1 = document.getElementById("div1");
+const div2 = document.getElementById("div2");
+const div3 = document.getElementById("div3");
+const div4 = document.getElementById("div4");
 
+button1.addEventListener("click", function() {
+  div1.classList.remove("hidden");
+  div2.classList.add("hidden");
+  div3.classList.add("hidden");
+  div4.classList.add("hidden");
+});
+
+button2.addEventListener("click", function() {
+  div1.classList.add("hidden");
+  div2.classList.remove("hidden");
+  div3.classList.add("hidden");
+  div4.classList.add("hidden");
+});
+
+button3.addEventListener("click", function() {
+  div1.classList.add("hidden");
+  div2.classList.add("hidden");
+  div3.classList.remove("hidden");
+  div4.classList.add("hidden");
+});
+
+button4.addEventListener("click", function() {
+  div1.classList.add("hidden");
+  div2.classList.add("hidden");
+  div3.classList.add("hidden");
+  div4.classList.remove("hidden");
+});
 //-------------------------------------------------------------------
 
 
@@ -113,101 +148,83 @@ function addToCart(img, name, fullName, price) {
         overlay.remove();
       }, 1000);
 }
-// Tạo class cho trang sản phẩm
-class ProductPage {
-  constructor(pageNumber) {
-    this.pageNumber = pageNumber;
-    this.element = document.createElement('div');
-    this.element.id = `div${pageNumber}`;
-    this.element.classList.add('product-page', 'hidden');
-    this.element.style.marginBottom = '20px';
-  }
-  show() {
-    this.element.classList.remove('hidden');
-  }
-  hide() {
-    this.element.classList.add('hidden');
-  }
-  render(products) {
-    const row = document.createElement('div');
-    row.classList.add('row');
+const products = document.querySelectorAll('.product');
+const searchInput = document.querySelector('.form-control');
+const filterBrand = document.querySelectorAll('.filter-brand a');
+const filterGender = document.querySelectorAll('.filter-gender a');
+const filterPrice = document.querySelectorAll('.filter-price a');
+const filterClear = document.querySelector('#filter-clear');
+const filterApply = document.querySelector('#button-addon1');
 
-    const productDivs = products.map(function(product) {
-      const imgSrc = product.querySelector('.ImgItem').getAttribute('src');
-      const fullName = product.querySelector('.FullName').textContent;
-      const name = product.querySelector('.FullName').textContent;
-      const price = product.querySelector('.PriceItem').textContent;
-
-      const productDiv = `
-        <div class="col-4">
-          <div class="card pt-3 CardItem product-item" style="width: 302px; height: 516px;">
-            <img class="card-img-top ImgItem" src="${imgSrc}">
-            <div class="card-body">
-              <h5 class="card-title NameItem">${fullName}</h5>
-              <div class="card-text">
-                <p class="FullName">${name}</p>
-                <p class="price PriceItem">${price}</p>
-                <a class="btn w-100 btn-light addToCart">
-                  <button style="border: none; background: none;">
-                    <i class="bi bi-cart3"></i> Thêm vào giỏ hàng
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-      return productDiv;
-    });
-
-    row.insertAdjacentHTML('beforeend', productDivs.join(''));
-    this.element.appendChild(row);
+function filterProducts() {
+  const searchText = searchInput.value.toLowerCase();
+  const selectedBrands = Array.from(filterBrand).filter((brand) => brand.classList.contains('active')).map((brand) => brand.textContent);
+  const selectedGender = Array.from(filterGender).filter((gender) => gender.classList.contains('active')).map((gender) => gender.textContent.toLowerCase());
+  const selectedPrice = Array.from(filterPrice).filter((price) => price.classList.contains('active')).map((price) => price.textContent);
+  
+  for (let i = 0; i < products.length; i++) {
+    const product = products[i];
+    const name = product.querySelector('.FullName').textContent.toLowerCase();
+    const brand = product.querySelector('.NameItem').textContent;
+    const genderImgSrc = product.querySelector('.gender').src;
+    const price = parseInt(product.querySelector('.PriceItem').textContent.replace(',', ''));
+    let gender = null;
+    
+    if (genderImgSrc.includes('w'))  {
+      gender = 'nữ';
+    } else {
+      gender = 'nam';
+    }
+    
+    if (!searchText && selectedBrands.length === 0 && selectedGender.length === 0 && selectedPrice.length === 0) {
+      product.style.display = 'block';
+    } else if (searchText && name.includes(searchText)) {
+      product.style.display = 'block';
+    } else if (selectedBrands.includes(brand)) {
+      product.style.display = 'block';
+    } else if (selectedGender.includes(gender)) {
+      product.style.display = 'block';
+    } else if (selectedPrice.some(range => {
+      const [min, max] = range.split(' - ').map(price => parseInt(price.replace(/đ/g, '').replace(',', '')));
+      return price >= min && price <= max;
+    })) {
+      product.style.display = 'block';
+    } else {
+      product.style.display = 'none';
+    }
   }
 }
 
-// Lấy danh sách các sản phẩm từ các phần tử có lớp CSS là "product-item"
-const allProducts = Array.from(document.querySelectorAll('.product-item'));
+// Lắng nghe sự kiện click nút "Lọc"
+filterApply.addEventListener('click', filterProducts);
 
-// Tạo các trang sản phẩm
-const numPages = Math.ceil(allProducts.length / 3); // Số trang sản phẩm, mỗi trang có tối đa 3 sản phẩm
-const productPages = [];
-for (let i = 0; i < numPages; i++) {
-  const page = new ProductPage(i + 1);
-  productPages.push(page);
-  document.body.appendChild(page.element);
-}
+// Lắng nghe sự kiện click nút "Xóa lọc"
+filterClear.addEventListener('click', function() {
+  searchInput.value = '';
+  Array.from(filterBrand).forEach((brand) => brand.classList.remove('active'));
+  Array.from(filterGender).forEach((gender) => gender.classList.remove('active'));
+  Array.from(filterPrice).forEach((price) => price.classList.remove('active'));
+  filterProducts();
+});
 
-// Hiển thị trang sản phẩm đầu tiên
-let currentPage = productPages[0];
-currentPage.show();
-currentPage.render(allProducts.slice(0, 3));
-
-// Lấy thanh chuyển trang
-const pageButtons = Array.from(document.querySelectorAll('#pagination a'));
-
-// Lặp qua từng nút trang để thêm sự kiện click
-pageButtons.forEach(function(button) {
-  button.addEventListener('click', function(event) {
-    event.preventDefault();
-
-    // Lấy số trang được chọn
-    const pageNumber = parseInt(button.textContent);
-
-    // Chuyển đến trang mới
-    currentPage.hide();
-    currentPage = productPages[pageNumber - 1];
-    currentPage.show();
-    const startIndex = (pageNumber - 1) * 3;
-    const endIndex = Math.min(startIndex + 3, allProducts.length);
-    currentPage.render(allProducts.slice(startIndex, endIndex));
+// Lắng nghe sự kiện click vào các liên kết thương hiệu, giới tính và giá để chọn tiêu chí lọc
+Array.from(filterBrand).forEach((brand) => {
+  brand.addEventListener('click', function() {
+    brand.classList.toggle('active');
+    filterProducts();
   });
 });
 
-// Xóa bộ lọc
-const clearFiltersButton = document.getElementById('clear-filters');
-clearFiltersButton.addEventListener('click', function() {
-  currentPage.hide();
-  currentPage = productPages[0];
-  currentPage.show();
-  currentPage.render(allProducts.slice(0, 3));
+Array.from(filterGender).forEach((gender) => {
+  gender.addEventListener('click', function() {
+    gender.classList.toggle('active');
+    filterProducts();
+  });
+});
+
+Array.from(filterPrice).forEach((price) => {
+  price.addEventListener('click', function() {
+    price.classList.toggle('active');
+    filterProducts();
+  });
 });
